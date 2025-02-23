@@ -5,14 +5,17 @@ from utils.hash import get_hash
 
 
 # TODO: Define block size
-BLOCK_SIZE =
+BLOCK_SIZE = 8
 
 
 # TODO: Implement DES encryption with ECB mode 
 
 def encrypt_ecb(plain: bytes, key: bytes):
     ### YOUR CODE ###
-
+    key_hash = get_hash(key, BLOCK_SIZE)
+    des = DES.new(key_hash, DES.MODE_ECB)
+    padded_plain = add_pads(plain, BLOCK_SIZE)
+    return des.encrypt(padded_plain)
 
 def decrypt_ecb(cipher: bytes, key: bytes):
     key_hash = get_hash(key, BLOCK_SIZE)
@@ -24,6 +27,12 @@ def decrypt_ecb(cipher: bytes, key: bytes):
 
 def encrypt_cbc(plain: bytes, key: bytes):
     ### YOUR CODE ###
+    key_hash = get_hash(key, BLOCK_SIZE)
+    des = DES.new(key_hash, DES.MODE_CBC)
+    padded_plain = add_pads(plain, BLOCK_SIZE)
+    iv = generate_bytes(BLOCK_SIZE)
+    return iv + des.encrypt(padded_plain)
+
 
 
 def decrypt_cbc(cipher: bytes, key: bytes):
