@@ -1,0 +1,28 @@
+CASE 1/4
+Message 1 (length: 5): b'Hello'
+Message 2 (length: 5): b'Hello'
+Hash 1 (length: 16): b'\xa5\x8f\xc8q\xf5\xf6\x8eAFGJ\xc1\xe2\xf0t\x19'
+Hash 2 (length: 16): b'\xa5\x8f\xc8q\xf5\xf6\x8eAFGJ\xc1\xe2\xf0t\x19'
+Hash 1 == Hash 2: True
+
+CASE 2/4
+Message 1 (length: 5): b'Hello'
+Message 2 (length: 9): b'Blockhain'
+Hash 1 (length: 16): b'\xa5\x8f\xc8q\xf5\xf6\x8eAFGJ\xc1\xe2\xf0t\x19'
+Hash 2 (length: 16): b'\x80\x9e\xe9\t3\x83\xad\xb21\x0e#L\x90f$\xe5'
+Hash 1 == Hash 2: False
+
+CASE 3/4
+Message 1 (length: 15): b'Hello Blockhain'
+Message 2 (length: 15): b'Hello Blockhain'
+Hash 1 (length: 16): b'\xaa\xfe\xf0\x95B>v\x14\xdbjls\xdb\xa7Z\xbd'
+Hash 2 (length: 16): b'\xaa\xfe\xf0\x95B>v\x14\xdbjls\xdb\xa7Z\xbd'
+Hash 1 == Hash 2: True
+
+CASE 4/4
+Message 1 (length: 15): b'Hello Blockhain'
+Message 2 (length: 16): b'Hello  Blockhain'
+Hash 1 (length: 16): b'\xaa\xfe\xf0\x95B>v\x14\xdbjls\xdb\xa7Z\xbd'
+Hash 2 (length: 16): b'\x8f\xe8Fo3\xfd\xb5\x84D\x8b\xf6vD\x9d\xb8X'
+Hash 1 == Hash 2: False
+

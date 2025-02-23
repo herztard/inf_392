@@ -1,0 +1,15 @@
+CASE 1/3
+Byte string (length: 5): b'Hello'
+Byte string after adding paddings (length: 8): b'Hello\x03\x03\x03'
+Byte string after removing paddings (length: 5): b'Hello'
+
+CASE 2/3
+Byte string (length: 9): b'Blockhain'
+Byte string after adding paddings (length: 16): b'Blockhain\x07\x07\x07\x07\x07\x07\x07'
+Byte string after removing paddings (length: 9): b'Blockhain'
+
+CASE 3/3
+Byte string (length: 15): b'Hello Blockhain'
+Byte string after adding paddings (length: 16): b'Hello Blockhain\x01'
+Byte string after removing paddings (length: 15): b'Hello Blockhain'
+

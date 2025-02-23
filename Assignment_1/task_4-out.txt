@@ -1,0 +1,24 @@
+CASE 1/4
+DES (ECB): Text (length: 15): b'Hello Blockhain'
+DES (ECB): Key (length: 5): b'Hello'
+DES (ECB): Ciphertext (length: 16): b'\xd0\x9a\x9e\x0f\xa1\xcb\x0b\x01\x9e\xad\xecX\x80\x00]\xe7'
+DES (ECB): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 2/4
+DES (ECB): Text (length: 15): b'Hello Blockhain'
+DES (ECB): Key (length: 5): b'Hello'
+DES (ECB): Ciphertext (length: 16): b'\xd0\x9a\x9e\x0f\xa1\xcb\x0b\x01\x9e\xad\xecX\x80\x00]\xe7'
+DES (ECB): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 3/4
+DES (ECB): Text (length: 5): b'Hello'
+DES (ECB): Key (length: 3): b'ABC'
+DES (ECB): Ciphertext (length: 8): b'\x81\xb7\xe1\x84\xb6\xe6\xb8\x96'
+DES (ECB): Decrypted Ciphertext (length: 5): b'Hello'
+
+CASE 4/4
+DES (ECB): Text (length: 5): b'Hello'
+DES (ECB): Key (length: 3): b'ABC'
+DES (ECB): Ciphertext (length: 8): b'\x81\xb7\xe1\x84\xb6\xe6\xb8\x96'
+DES (ECB): Decrypted Ciphertext (length: 5): b'Hello'
+

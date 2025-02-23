@@ -1,0 +1,24 @@
+CASE 1/4
+AES (CBC): Text (length: 15): b'Hello Blockhain'
+AES (CBC): Key (length: 5): b'Hello'
+AES (CBC): Ciphertext (length: 16): b'\xbca_\x827(mO\xd3t+\x1d\x06n\x91\x81'
+AES (CBC): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 2/4
+AES (CBC): Text (length: 15): b'Hello Blockhain'
+AES (CBC): Key (length: 5): b'Hello'
+AES (CBC): Ciphertext (length: 16): b'\xbca_\x827(mO\xd3t+\x1d\x06n\x91\x81'
+AES (CBC): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 3/4
+AES (CBC): Text (length: 5): b'Hello'
+AES (CBC): Key (length: 3): b'ABC'
+AES (CBC): Ciphertext (length: 16): b'\xf2c\x92\xd7Qx<t,W\xab\xc8F3\x01\x9d'
+AES (CBC): Decrypted Ciphertext (length: 5): b'Hello'
+
+CASE 4/4
+AES (CBC): Text (length: 5): b'Hello'
+AES (CBC): Key (length: 3): b'ABC'
+AES (CBC): Ciphertext (length: 16): b'\xf2c\x92\xd7Qx<t,W\xab\xc8F3\x01\x9d'
+AES (CBC): Decrypted Ciphertext (length: 5): b'Hello'
+

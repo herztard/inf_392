@@ -1,0 +1,9 @@
+Prime (p): 1009627
+Primitive Root (g): 2
+Alice's private key: 283266
+Alice's public key: 874119
+Bob's private key: 905337
+Bob's public key: 7010
+Alice's shared key: 216211
+Bob's shared key: 216211
+Alice's shared key == Bob's shared key: True

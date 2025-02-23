@@ -1,0 +1,24 @@
+CASE 1/4
+DES (CBC): Text (length: 15): b'Hello Blockhain'
+DES (CBC): Key (length: 5): b'Hello'
+DES (CBC): Ciphertext (length: 24): b'\x97O1:1\x85<\xd0\r%:\x19\x92\x8f)+n1?\xd5\xd0E\x82\xb5'
+DES (CBC): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 2/4
+DES (CBC): Text (length: 15): b'Hello Blockhain'
+DES (CBC): Key (length: 5): b'Hello'
+DES (CBC): Ciphertext (length: 24): b'\xbe\x96R\x01[\xbc\xeb8=\x010\xe1\xb2\xdd\x1d\\\x9a\x15:\xa4f\xda/Y'
+DES (CBC): Decrypted Ciphertext (length: 15): b'Hello Blockhain'
+
+CASE 3/4
+DES (CBC): Text (length: 5): b'Hello'
+DES (CBC): Key (length: 3): b'ABC'
+DES (CBC): Ciphertext (length: 16): b'Q\xe2AQ\x9f\x8a7W(\x15\xe9Y.j\xb4\xda'
+DES (CBC): Decrypted Ciphertext (length: 5): b'Hello'
+
+CASE 4/4
+DES (CBC): Text (length: 5): b'Hello'
+DES (CBC): Key (length: 3): b'ABC'
+DES (CBC): Ciphertext (length: 16): b'\xcc\xa8g\xc2\xb0\xfc\xd4\xc8\xea~\x1f6\x0f2\xdc\x88'
+DES (CBC): Decrypted Ciphertext (length: 5): b'Hello'
+
