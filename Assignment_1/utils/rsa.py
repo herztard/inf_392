@@ -16,6 +16,9 @@ def generate_rsa_keys(key_length=1024, e=65537):
 
     # TODO: Finish RSA key generaiton
     ### YOUR CODE ###
+    n = p * q
+    phi = (p - 1) * (q - 1)
+    d = modinv(e, phi)
 
     return ((e, n), (d, n))
 
@@ -23,5 +26,7 @@ def generate_rsa_keys(key_length=1024, e=65537):
 def encrypt(number: int, key: Tuple[int, int]):
     # TODO: Finish RSA encryption (this function can be also used for decryption)
     ### YOUR CODE ###
+    exponent, modulus = key
+    cipher_number = pow(number, exponent, modulus)
     return cipher_number
 
