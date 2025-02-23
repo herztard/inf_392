@@ -1,5 +1,5 @@
 import random
-from utils.math import is_prime
+from Assignment_1.utils.math import is_prime
 
 def generate_bytes(size: int):
     # TODO: Generate random bytes of the given size

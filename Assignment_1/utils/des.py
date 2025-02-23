@@ -1,7 +1,7 @@
 from Crypto.Cipher import DES
-from utils.generators import generate_bytes
-from utils.pad import add_pads, remove_pads
-from utils.hash import get_hash
+from Assignment_1.utils.generators import generate_bytes
+from Assignment_1.utils.pad import add_pads, remove_pads
+from Assignment_1.utils.hash import get_hash
 
 
 # TODO: Define block size

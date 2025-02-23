@@ -2,7 +2,6 @@ from utils.dh import generate_public_components, generate_private_key, compute_p
 
 
 p, g = generate_public_components()
-
 alice_priv_key = generate_private_key(p)
 alice_pub_key = compute_public_key(alice_priv_key, p, g)
 

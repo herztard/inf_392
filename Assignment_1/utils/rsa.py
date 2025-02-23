@@ -1,7 +1,7 @@
 import random
 from typing import Tuple
-from utils.generators import generate_prime_number
-from utils.math import gcd, modinv
+from Assignment_1.utils.generators import generate_prime_number
+from Assignment_1.utils.math import gcd, modinv
 
 
 def generate_rsa_keys(key_length=1024, e=65537):
