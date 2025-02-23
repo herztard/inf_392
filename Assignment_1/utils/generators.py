@@ -4,6 +4,7 @@ from utils.math import is_prime
 def generate_bytes(size: int):
     # TODO: Generate random bytes of the given size
     ### YOUR CODE ###
+    return bytes(random.getrandbits(8) for _ in range(size))
 
 def generate_prime_candidate(length):
     """Generate an odd integer randomly."""
