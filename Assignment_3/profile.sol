@@ -38,13 +38,13 @@ contract Profile {
         )
     {
         ProfileData storage p = profiles[msg.sender];
-        require(bytes(p.username).length > 0, "Profile: not set");
+        require(bytes(p.username).length > 0);
         return (p.username, p.firstName, p.lastName, p.email);
     }
 
     function removeProfile() public {
         ProfileData storage p = profiles[msg.sender];
-        require(bytes(p.username).length > 0, "Profile: not set");
+        require(bytes(p.username).length > 0);
         delete profiles[msg.sender];
     }
 }
