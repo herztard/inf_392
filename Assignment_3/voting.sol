@@ -2,9 +2,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ~0.8.22;
 
-
 contract Voting {
-
     struct Candidate {
         uint256 id;
         string name;
@@ -12,13 +10,20 @@ contract Voting {
     }
 
     Candidate[] private candidates;
-    mapping (address => uint256) private votes;
+    mapping(address => uint256) private votes;
 
-    constructor() {
-        // TODO: init several candidates
+    constructor(uint256[] memory _ids, string[] memory _names) {
+        require(_ids.length == _names.length, "Голосование. длина не свопадает");
+        for (uint256 i = 0; i < _ids.length; i++) {
+            candidates.push(Candidate({
+                id: _ids[i],
+                name: _names[i],
+                votesCount: 0
+            }));
+        }
     }
 
-    function _getCandidateIndexById(uint256 candidateId) private view returns(uint256) {
+    function _getCandidateIndexById(uint256 candidateId) private view returns (uint256) {
         for (uint256 i = 0; i < candidates.length; i++) {
             if (candidates[i].id == candidateId) {
                 return i;
@@ -27,33 +32,53 @@ contract Voting {
         return candidates.length;
     }
 
-    function vote(uint256 index) ... {
-        if (index >= candidates.length) return;
-        uint256 votedIndex = _getCandidateIndexById(votes[msg.sender]);
-        bool isNewVote = votedIndex == candidates.length;
+    function vote(uint256 index) public {
+        require(index < candidates.length, "Голосование: out of index");
 
-        // TODO: complete the function
-        // Hint: If it is a new vote from the user, then increment the votes count of the voting candidate.
-        // If the user is changing his vote, then decrement the old candidate's votes count and increment the votes count of a new one.
+        uint256 prevCandidateId = votes[msg.sender];
+        uint256 prevIndex = _getCandidateIndexById(prevCandidateId);
 
-        votes[msg.sender] = candidate.id;
+        if (prevIndex < candidates.length) {
+            candidates[prevIndex].votesCount--;
+        }
+        candidates[index].votesCount++;
+        votes[msg.sender] = candidates[index].id;
     }
 
-    function getVote() ... {
-        uint256 votedIndex = _getCandidateIndexById(votes[msg.sender]);
-        if (votedIndex == candidates.length) revert("No votes");
-        // TODO: complete the function.
+    function getVote() public view returns (uint256 candidateId, string memory candidateName) {
+        uint256 votedId = votes[msg.sender];
+        uint256 idx = _getCandidateIndexById(votedId);
+        require(idx < candidates.length, "Голосование: голос не найден");
+        Candidate storage c = candidates[idx];
+        return (c.id, c.name);
     }
 
-    function removeVote() ... {
-        uint256 votedIndex = _getCandidateIndexById(votes[msg.sender]);
-        if (votedIndex == candidates.length) revert("No votes");
-        // TODO: complete the function
-        // Hint: Decrement the old candidate's votes count.
+    function removeVote() public {
+        uint256 votedId = votes[msg.sender];
+        uint256 idx = _getCandidateIndexById(votedId);
+        require(idx < candidates.length, "Voting: no vote to remove");
+        candidates[idx].votesCount--;
+        delete votes[msg.sender];
     }
 
-    function summary() ... {
-        // TODO: complete the function
-        // Hint: Return summary about the votes, so people can see the votes of all candidates
+    function summary()
+        public
+        view
+        returns (
+            uint256[] memory ids,
+            string[] memory names,
+            uint256[] memory voteCounts
+        )
+    {
+        uint256 len = candidates.length;
+        ids = new uint256[](len);
+        names = new string[](len);
+        voteCounts = new uint256[](len);
+        for (uint256 i = 0; i < len; i++) {
+            Candidate storage c = candidates[i];
+            ids[i] = c.id;
+            names[i] = c.name;
+            voteCounts[i] = c.votesCount;
+        }
     }
 }
