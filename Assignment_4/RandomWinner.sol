@@ -23,6 +23,7 @@ contract RandomWinner is Ownable {
         randomNonce = 0;
     }
 
+
     function max(uint256 a, uint256 b) internal pure returns (uint256) {
         // Returns the max value
         // TODO: complete the function
